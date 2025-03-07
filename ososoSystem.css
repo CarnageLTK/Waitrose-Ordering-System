@@ -1,0 +1,20 @@
+@import url("\'generalCSS.css");
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+#menuArea {
+    width: clamp(200px, 16.458vw, 250px);
+    height: 100vh;
+    border: none;
+    overscroll-behavior: none;
+}
+
+#navArea {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    overscroll-behavior-y: none;
+}

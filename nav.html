@@ -1,111 +1,5 @@
 <head>
-    <style>
-        html, body {
-            text-align: center; /* Ensures that the content is centered */
-            vertical-align: middle; /* Ensures vertical alignment of content */
-            margin: 0px;
-            padding: 0px;
-            font-family: "Waitrose", "Gill Sans", "Gill Sans MT", Tahoma, sans-serif;
-            font-size: clamp(15px, 2.5vmin, 25px);
-            place-items: center;
-            height: 100vh;
-            width: 100vw;
-            display: table;
-        }
-
-        form {
-            margin: 5px;
-        }
-
-        table {
-            text-align: center; /* Centers content inside the table */
-        }
-
-        tr {
-            margin: 0px;
-            padding: 0px;
-        }
-        
-        th {
-            margin: 0px;
-            padding: 0px;
-            height: clamp(25px, 4vh, 50px);
-            border-radius: 5px;
-            text-align: center;
-            background-color: #578626; 
-            color: #ffffff;
-            font-size: 1rem;
-            border: none;
-        }
-
-        td {
-            margin: 0px;
-            padding: 0px;
-            text-align: center; /* Ensures that the content is centered */
-            vertical-align: middle; /* Ensures vertical alignment of content */
-            width: 33%; /* Set each td to take up one-third of the table */
-            height: clamp(50px, 8vh, 100px);
-            
-            cursor: pointer;
-        } 
-
-        select {
-            border-radius: 5px;
-            border: 1px solid black;
-            text-align: center;
-            color: black;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s;
-            width: 100%;
-            height: inherit;
-            box-sizing: border-box;
-            white-space: nowrap; /* Prevent text wrapping */
-            overflow: hidden; /* Hide overflowing text */
-            text-overflow: ellipsis; /* Add "..." when content overflows */
-        } 
-
-        select * {
-            text-align: center;
-            font-size: 1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-            height: inherit;
-            box-sizing: border-box;
-            display: block;
-            align-items: center;
-        }
-
-        .layouts1 {
-            min-width: calc(8 * clamp(15px, 2.5vmin, 25px)); /* Add half the max characters in layout */
-        }
-
-        .layouts2 {
-            min-width: calc(17.5 * clamp(15px, 2.5vmin, 25px)); /* Add half the max characters in layout */
-        }
-
-        .SectionSelected {
-            text-align: center;
-            color: black;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid black;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
-
-        /* Hover effect for items */
-        .SectionSelected:hover, .layouts1:hover, .layouts2:hover {
-            background-color: #c4d201;
-            transform: scale(1.025); /* Slightly grow the item on hover */
-        }
-
-        /* Clicked effect */
-        .SectionSelected:active, .layouts1:active, .layouts2:active {
-            background-color: #02462f; /* Even darker green on click */
-            transform: scale(1); /* Ensure it returns to original size when clicked */
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="nav.css">
     <script>
         function subform() {
             alert("Form submitted");
@@ -144,7 +38,7 @@
                             <option class="layouts2" id="Layout" name="L089U285S057">089 ARTISAN BREAD</option>
                             <option class="layouts2" id="Layout" name="L091U230S057">091 BAKE OFF BREAD</option>
                             <option class="layouts2" id="Layout" name="L092U260S057">092 SERVICE COUNTER CHEESE</option>
-                            <option class="layouts2" id="Layout" name="L105U260S057">105 Regional Service Counter Cheese</option>
+                            <option class="layouts2" id="Layout" name="L105U260S057">105 REGIONAL SERVICE COUNTER CHEESE</option>
                             <option class="layouts2" id="Layout" name="L105U260S057">106 PATISSERIE SELF SERVE</option>
                             <option class="layouts2" id="Layout" name="L160U223S057">160 SERVICE COUNTER BEEF</option>
                             <option class="layouts2" id="Layout" name="L170U211S057">170 SERVICE COUNTER DELI</option>

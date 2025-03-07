@@ -1,0 +1,50 @@
+@import url('\'generalCSS.css');
+
+h1 {
+    padding: clamp(10px, 3.333vmin, 50px);
+    margin-left: clamp(5px, 1.666vmin, 25px);
+    margin-right: clamp(5px, 1.666vmin, 25px);
+    border-radius: 5px;
+    border-bottom: clamp(3px, 1vmin, 5px) solid black;
+    font-size: 2rem;
+}
+
+table {
+    margin: auto;
+    height: clamp(300px, 50vmin, 500px);
+    background-color: #578626;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+td, td input {
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+td {
+    width: 50%; 
+    height: 25%; 
+}
+
+input {
+    width: 90%; 
+    height: 50%;
+}
+
+.OSOSOButton {
+    width: 95%; /* Fixed width for all table cells */
+    height: 75%; /* Fixed height for all table cells */
+
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.OSOSOButton:hover {
+    background-color: lightgrey;
+}

@@ -1,0 +1,110 @@
+@import url('\'generalCSS.css');
+
+table { 
+    margin: auto;
+    padding: 5px 0;
+    font-weight: bold;
+    text-align: center; 
+    z-index: 1;
+    border-spacing: 5px;
+}
+
+th, td:not(:empty) {
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    background-color: #c4d201;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.2s, height 0.2s ease;
+}
+
+th {
+    height: clamp(50px, 8vh, 100px);
+}
+
+/* Styling for main items */
+td:not(:empty) {
+    width: 80vw;
+    height: clamp(50px, 8vh, 100px);
+}
+
+/* Hover effect for items */
+.itemOnList:hover, .subOnList:hover {
+    background-color: #9f9b15;
+    transform: scale(1.05); /* Slightly grow the item on hover */
+}
+
+/* Clicked effect */
+.itemOnList:active, .subOnList:active {
+    background-color: #02462f; /* Even darker green on click */
+    transform: scale(1); /* Ensure it returns to original size when clicked */
+}
+
+/* Styling for selected section */
+.itemOnList.SectionSelected {
+    background-color: #02462f;
+    color: white;
+    font-weight: bolder;
+}
+
+/* Styling for selected section */
+.subOnList.SectionSelected {
+    background-color: #9f9b15;
+    color: white;
+    font-weight: bolder;
+}
+
+td.hidden {
+    transition: height 0.3s ease;
+    height: 0; /* Collapse the item */
+    pointer-events: none; /* Prevent interaction when collapsed */
+}
+
+tr.hidden {
+    transition: opacity 0.25s ease, visibility 0.20s;
+    opacity: 0; /* Hide the item */
+    visibility: collapse; /* Hide the item */
+    pointer-events: none; /* Prevent interaction when collapsed */
+}
+
+/* Vertical green bars - Background */
+.bar-background {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: -1; /* Ensure bars are in the background */
+    background-color: #ffffff;
+    display: inline-flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the page */
+    left: 0;
+}
+
+.bar { 
+    margin: 0;
+    padding: 0;
+}
+
+.bar1 { flex-grow: 1; background-color: #578626;}
+.bar2 { height: 8.161vmin /*63px*/; background-color: #c4d201; margin-bottom: 6.477vmin /*50px*/;}
+.bar3 { height: 4.145vmin /*32px*/; background-color: #02462f; margin-bottom: 8.031vmin /*62px*/;}
+.bar4 { height: 2.073vmin /*16px*/; background-color: #9f9b15;}
+
+.nameBottom {
+    margin-bottom: 1.943vmin /*15px*/;
+    padding-bottom: 5.959vmin /*46px*/;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #578626;
+    font-size: 4.016vmin /*31px*/;
+}
+
+.nameTop {
+    padding-bottom: 3.497vmin /*27px*/;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #578626;
+    font-size: 7.254vmin /*56px*/;
+}
