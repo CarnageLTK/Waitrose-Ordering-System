@@ -1,0 +1,270 @@
+<head>
+    <style>
+        html, body {
+            text-align: center; /* Ensures that the content is centered */
+            vertical-align: middle; /* Ensures vertical alignment of content */
+            margin: 0px;
+            padding: 0px;
+            font-family: "Waitrose", "Gill Sans", "Gill Sans MT", Tahoma, sans-serif;
+            font-size: clamp(15px, 2.5vmin, 25px);
+            place-items: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Centering the buttons inside the table */
+        table { 
+            margin-top: 5px;
+            width: 90vw;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center; 
+            z-index: 1; /* Ensure the table is in the foreground */ 
+        }
+
+        th {
+            height: clamp(50px, 8vh, 100px);
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #c4d201; /* Green background */
+            color: white;
+            border: none;
+            transition: background-color 0.2s ease, transform 0.2s, height 0.2s ease;
+        }
+
+        /* Styling for main items */
+        td:not(:empty) {
+            width: 80vw;
+            height: clamp(50px, 8vh, 100px);
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #c4d201; /* Green background */
+            color: white;
+            border: none;
+            transition: background-color 0.2s ease, transform 0.2s, height 0.2s ease;
+        }
+
+        /* Hover effect for items */
+        .itemOnList:hover, .subOnList:hover {
+            background-color: #9f9b15;
+            transform: scale(1.05); /* Slightly grow the item on hover */
+        }
+
+        /* Clicked effect */
+        .itemOnList:active, .subOnList:active {
+            background-color: #02462f; /* Even darker green on click */
+            transform: scale(1); /* Ensure it returns to original size when clicked */
+        }
+
+        /* Styling for selected section */
+        .itemOnList.SectionSelected {
+            background-color: #02462f;
+            color: white;
+            font-weight: bolder;
+        }
+
+        /* Styling for selected section */
+        .subOnList.SectionSelected {
+            background-color: #9f9b15;
+            color: white;
+            font-weight: bolder;
+        }
+
+        td.hidden {
+            transition: height 0.3s ease;
+            height: 0; /* Collapse the item */
+            pointer-events: none; /* Prevent interaction when collapsed */
+        }
+
+        tr.hidden {
+            transition: opacity 0.25s ease, visibility 0.20s;
+            opacity: 0; /* Hide the item */
+            visibility: collapse; /* Hide the item */
+            pointer-events: none; /* Prevent interaction when collapsed */
+        }
+
+        /* Vertical green bars - Background */
+        .bar-background {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            z-index: -1; /* Ensure bars are in the background */
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column-reverse;
+            position: absolute;
+        }
+
+        .bar { 
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .bar1 { flex-grow: 1; background-color: #578626;}
+        .bar2 { height: 8.161vmin /*63px*/; background-color: #c4d201; margin-bottom: 6.477vmin /*50px*/;}
+        .bar3 { height: 4.145vmin /*32px*/; background-color: #02462f; margin-bottom: 8.031vmin /*62px*/;}
+        .bar4 { height: 2.073vmin /*16px*/; background-color: #9f9b15;}
+
+        .nameBottom {
+            margin-bottom: 1.943vmin /*15px*/;
+            padding-bottom: 5.959vmin /*46px*/;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #578626;
+            font-size: 4.016vmin /*31px*/;
+        }
+
+        .nameTop {
+            padding-bottom: 3.497vmin /*27px*/;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #578626;
+            font-size: 7.254vmin /*56px*/;
+        }
+    </style>
+    <script>
+        function init() {
+            document.querySelectorAll("[id=OHgroupItem]").forEach(item => {
+                item.children[1].classList.add("Hidden");
+                item.classList.add("Hidden");
+            });
+        }
+
+        function toggleGroup(find) {
+            // Hide all groups except the one being toggled
+            document.querySelectorAll("[id=OHgroupItem]").forEach(item => {
+                if (item.getAttribute("name") !== find) {
+                    item.children[1].classList.add("Hidden");
+                    item.classList.add("Hidden");
+                }
+            });
+
+            document.querySelectorAll(`[name='${find}']`).forEach(item => {
+                item.children[1].classList.remove("Hidden");
+                item.classList.remove("Hidden");
+            });
+        }
+
+        function panelNavigate(action) { 
+            console.log("Navigating to " + action); 
+        }
+
+        function lookUp(id) { 
+            console.log("Looking up " + id); 
+        }
+
+        function clicked(element) { 
+            const items = document.getElementsByClassName("SectionSelected");
+            for (let item of items) {
+                if (item !== element && item.classList.contains(element.classList[0])) {
+                    item.classList.remove("SectionSelected");
+                }
+            } 
+            element.classList.add("SectionSelected");
+        }
+
+        // Toggle the selected state of the Review Orders item
+        function selected(element) {
+            const items = document.getElementsByClassName("SectionSelected");
+            for (let item of items) {
+                if (item !== element) {
+                    item.classList.remove("SectionSelected");
+                }
+            }
+            element.classList.add("SectionSelected");
+        }
+
+        window.onload = function(){
+            init();
+        };
+    </script>
+</head>
+
+<html>
+    <body >
+        <table>
+            <tbody>
+                <!-- Main Item -->
+                <tr id="groupItem" name="Group1">
+                    <th class="itemOnList" id="default" 
+                        onclick="selected(this); toggleGroup('Group2'); panelNavigate('ORDERCLICK');" 
+                        rowspan="1" colspan="3" name="Group1Item">
+                        Review Orders
+                    </th>
+                </tr>
+
+                <!-- Sub Items (Initially Hidden) -->
+                <tr id="OHgroupItem" name="Group2">
+                    <td></td>
+                    <td class="subOnList" id="O1"  
+                        onclick="lookUp('E1'); clicked(this);" 
+                        rowspan="1" colspan="1" name="ReviewItem"
+                        width: 75vw;>
+                        New Promotions
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr id="OHgroupItem" name="Group2">
+                    <td></td>
+                    <td class="subOnList" id="O2" 
+                        onclick="lookUp('E6'); clicked(this);" 
+                        rowspan="1" colspan="1" name="ReviewItem">
+                        Promotions Ending
+                    </td>
+                </tr>
+
+                <tr id="OHgroupItem" name="Group2">
+                    <td></td>
+                    <td class="subOnList" id="O3" 
+                        onclick="lookUp('E2'); clicked(this);" 
+                        rowspan="1" colspan="1" name="ReviewItem">
+                        Exceptions
+                    </td>
+                </tr>
+
+                <tr id="OHgroupItem" name="Group2">
+                    <td></td>
+                    <td class="subOnList" id="O4" 
+                        onclick="lookUp('E3'); clicked(this);" 
+                        rowspan="1" colspan="1" name="ReviewItem">
+                        Reference
+                    </td>
+                </tr>
+
+                <tr id="OHgroupItem" name="Group2">
+                    <td></td>
+                    <td class="subOnList" id="O5"  
+                        onclick="lookUp('E46'); clicked(this);" 
+                        rowspan="1" colspan="1" name="ReviewItem">
+                        Line Search
+                    </td>
+                </tr>
+
+                <!-- Main Item -->
+                <tr id="groupItem" name="Group3">
+                    <th class="itemOnList" id="default" 
+                        onclick="selected(this); toggleGroup('Group4'); panelNavigate('ORDERCLICK');" 
+                        rowspan="1" colspan="3" name="Group3Item">
+                        Ugh
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Vertical Bars Section -->
+        <div class="bar-background">
+            <div class="bar bar4"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar2"></div>
+            <div class="bar nameBottom">& PARTNERS</div>
+            <div class="bar nameTop">WAITROSE</div>
+            <div class="bar bar1"></div>
+        </div>
+    </body>
+</html>

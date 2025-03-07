@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>OSOSO System</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #menuArea {
+            width: clamp(200px, 16.458vw, 250px);
+            height: 100vh;
+            border: none;
+        }
+
+        #navArea {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Side Menu Area -->
+    <iframe id="menuArea" name="menuArea" src="menu.html" title="Menu Area"></iframe>
+
+    <!-- Main Navigation Area -->
+    <iframe id="navArea" name="NavArea" src="nav.html" title="Navigation Area" onload="closeWindow()"></iframe>
+</body>
+
+</html>
